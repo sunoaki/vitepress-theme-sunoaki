@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitepress';
 
 export default defineConfig({
+  base: '/vitepress-theme-sunoaki/',
   title: 'Theme Demo',
   description: 'A demo site for vitepress-theme-sunoaki',
   themeConfig: {
