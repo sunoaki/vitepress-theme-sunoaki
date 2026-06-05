@@ -1,0 +1,27 @@
+{
+  "name": "vitepress-theme-sunoaki",
+  "version": "0.1.0",
+  "description": "A reusable VitePress theme with calm network-documentation styling.",
+  "type": "module",
+  "license": "MIT",
+  "exports": {
+    ".": "./src/index.ts",
+    "./style.css": "./src/style.css"
+  },
+  "scripts": {
+    "demo:dev": "vitepress dev docs",
+    "demo:build": "vitepress build docs",
+    "demo:preview": "vitepress preview docs"
+  },
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "peerDependencies": {
+    "vitepress": "^1.6.4"
+  },
+  "devDependencies": {
+    "vitepress": "^1.6.4"
+  }
+}
