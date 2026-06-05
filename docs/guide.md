@@ -1,40 +1,38 @@
-# Theme Surface Guide
+# Theme Preview
 
-This page demonstrates the reusable parts of `vitepress-theme-sunoaki`: prose, links, lists, code, tables, containers, search icons, and dark-mode-aware surfaces.
+This page is a quick tour of the theme's default reading experience.
 
 ## Typography
 
-Documentation should feel quiet and precise. Body text stays readable, links keep a subtle underline, and `inline code` remains visible without shouting.
+Good documentation should feel steady and easy to scan. Text is spacious, links stay visible, and `inline code` fits naturally into a paragraph.
 
-Use **bold text** for emphasis, *italic text* for nuance, and short paragraphs when the reader is scanning a technical page.
+Use **bold text** for emphasis and *italic text* when the tone needs to be softer.
 
 ### Blockquotes
 
-Blockquotes use the same calm surface language as containers, but intentionally do not show an icon.
+Blockquotes are plain by design. They should feel like a quoted aside, not like an alert.
 
-> This is a plain blockquote. It is useful for quoted notes, design principles, or short context that should not be categorized as a warning or tip.
+> A short quote can sit inside the page without pulling too much attention.
 >
-> A second paragraph should align cleanly with the first.
+> Longer quotes keep the same quiet rhythm.
 
 ## Lists
 
-### Implementation checklist
+### What this theme is for
 
-- Install the theme package.
-- Import the theme from `.vitepress/theme/index.ts`.
-- Keep project-specific logo, footer, and homepage overrides in the consuming site.
-- Adjust `--docs-theme-*` tokens when a project needs a different mood.
+- Product and project documentation.
+- Network, infrastructure, and operations notes.
+- Open-source packages that need a calm docs surface.
+- Sites that want tasteful defaults without a full custom design system.
 
-### Suggested workflow
+### A simple setup path
 
-1. Start with the default VitePress theme behavior.
-2. Add this theme as the visual layer.
-3. Keep content-specific pages and assets outside the package.
-4. Build the demo before publishing changes.
+1. Add the theme package.
+2. Import it from your VitePress theme entry.
+3. Keep your own branding and homepage styles in your site.
+4. Build and preview before publishing.
 
 ## Code Blocks
-
-The theme keeps code blocks compact and readable while preserving VitePress syntax highlighting.
 
 ```typescript
 import Theme from 'vitepress-theme-sunoaki'
@@ -43,46 +41,44 @@ import './style.css'
 export default Theme
 ```
 
-For local package development, the demo imports the source entry directly:
-
-```typescript
-import Theme from '../../../src/index'
-
-export default Theme
+```css
+:root {
+  --docs-theme-accent: #2f6f73;
+}
 ```
 
 ## Tables
 
-| Surface | What to check | Expected result |
-|---------|---------------|-----------------|
-| Navigation | Active and hover states | Soft pill treatment |
-| Search | Desktop and mobile controls | Material Symbols icons |
-| Containers | Info, tip, warning, danger, details | Icon cards with aligned text |
-| Blockquote | Plain quoted content | No icon, same surface tone |
-| Dark mode | Tokens and shadows | Muted contrast without harsh edges |
+| Area | Feel |
+|------|------|
+| Navigation | Compact and calm |
+| Search | Clear on desktop and mobile |
+| Code | Framed without feeling heavy |
+| Tables | Structured but not crowded |
+| Containers | Distinct, aligned, and readable |
 
 ## Custom Containers
 
 ::: info
-Info containers are for neutral context. They use an icon, unlike blockquotes.
+Use info blocks for neutral context.
 :::
 
 ::: tip
-Tip containers highlight a helpful path forward without changing the page structure.
+Use tips for helpful next steps.
 :::
 
 ::: warning
-Warning containers call out operational risk or configuration that deserves attention.
+Use warnings when something deserves attention.
 :::
 
 ::: danger
-Danger containers are reserved for destructive or high-impact mistakes.
+Use danger blocks sparingly, for high-impact mistakes.
 :::
 
-::: details Inspect the details treatment
-Details containers use a single disclosure icon that changes state and remains aligned with the title on mobile.
+::: details More about the details block
+Details blocks should open cleanly, with one aligned disclosure icon.
 :::
 
-## Local Search
+## Search
 
-Open the search box from the navigation bar and test it on mobile width. The back, layout, and clear buttons should be centered and rendered through Material Symbols.
+Try the search button in the navigation bar. On mobile, the back, layout, and clear controls should stay centered and easy to tap.
