@@ -1,6 +1,10 @@
 import { defineConfig } from 'vitepress';
+import { defineSunoakiThemeConfig } from '../../src/config';
 
 export default defineConfig({
+  extends: defineSunoakiThemeConfig({
+    sitemapHostname: 'https://sunoaki.github.io/vitepress-theme-sunoaki/'
+  }),
   base: '/vitepress-theme-sunoaki/',
   title: 'VitePress Theme Sunoaki',
   description: 'A calm VitePress theme demo',
