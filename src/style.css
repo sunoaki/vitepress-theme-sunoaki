@@ -1,4 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0");
+@font-face {
+	font-family: "Material Symbols Rounded";
+	font-style: normal;
+	font-weight: 400;
+	font-display: block;
+	src: url("/assets/material-symbols-rounded.woff2") format("woff2");
+}
 
 /**
  * Customize default theme styling by overriding CSS variables:
@@ -203,6 +209,7 @@ body,
 	font-weight: normal;
 	font-style: normal;
 	line-height: 1;
+	font-feature-settings: normal;
 	font-variation-settings:
 		"FILL" 0,
 		"wght" 400,
@@ -212,64 +219,64 @@ body,
 }
 
 .vpi-chevron-right::before {
-	content: "chevron_right";
+	content: "\e5cc";
 }
 .vpi-chevron-left::before {
-	content: "chevron_left";
+	content: "\e5cb";
 }
 .vpi-chevron-down::before {
-	content: "expand_more";
+	content: "\e5cf";
 }
 .vpi-chevron-up::before {
-	content: "expand_less";
+	content: "\e5ce";
 }
 .vpi-more-horizontal::before {
-	content: "more_horiz";
+	content: "\e5d3";
 }
 .vpi-sun::before {
-	content: "light_mode";
+	content: "\e518";
 }
 .vpi-moon::before {
-	content: "dark_mode";
+	content: "\e51c";
 }
 .vpi-search::before {
-	content: "search";
+	content: "\ef7a";
 }
 .vpi-arrow-left::before {
-	content: "arrow_back";
+	content: "\e5c4";
 }
 .vpi-arrow-right::before {
-	content: "arrow_forward";
+	content: "\e5c8";
 }
 .vpi-arrow-up::before {
-	content: "keyboard_arrow_up";
+	content: "\e316";
 }
 .vpi-arrow-down::before {
-	content: "keyboard_arrow_down";
+	content: "\e313";
 }
 .vpi-layout-list::before {
-	content: "view_list";
+	content: "\e8ef";
 }
 .vpi-delete::before {
-	content: "close";
+	content: "\e5cd";
 }
 .vpi-corner-down-left::before {
-	content: "keyboard_return";
+	content: "\e31b";
 }
 .vpi-plus::before {
-	content: "add";
+	content: "\e145";
 }
 .vpi-square-pen::before {
-	content: "edit_square";
+	content: "\f88d";
 }
 .vpi-languages::before {
-	content: "language";
+	content: "\ea07";
 }
 .vpi-align-left::before {
-	content: "menu";
+	content: "\e5d2";
 }
 .vpi-heart::before {
-	content: "favorite";
+	content: "\e87e";
 }
 
 .vpi-arrow-left,
@@ -292,7 +299,7 @@ body,
 }
 
 .DocSearch-Button .DocSearch-Search-Icon::before {
-	content: "search";
+	content: "\ef7a";
 	font-size: 18px;
 }
 
@@ -307,7 +314,7 @@ body,
 	margin-left: 3px !important;
 	background: none !important;
 	color: currentColor;
-	content: "open_in_new";
+	content: "\e89e";
 	font-size: 0.9em;
 	line-height: 1 !important;
 	vertical-align: -0.14em !important;
@@ -320,13 +327,13 @@ body,
 }
 
 .vp-doc [class*="language-"] > button.copy::after {
-	content: "content_copy";
+	content: "\e14d";
 	font-size: 16px;
 	color: var(--docs-theme-muted);
 }
 
 .vp-doc [class*="language-"] > button.copy.copied::after {
-	content: "check";
+	content: "\e668";
 	color: var(--vp-c-brand);
 }
 
@@ -361,7 +368,7 @@ body,
 	line-height: 1;
 	text-indent: 0;
 	color: var(--docs-theme-muted);
-	content: "arrow_upward";
+	content: "\e5d8";
 	font-variation-settings:
 		"FILL" 0,
 		"wght" 400,
@@ -487,7 +494,8 @@ a:hover {
 		font-weight: normal;
 		line-height: 1;
 		color: var(--docs-theme-muted);
-		content: "light_mode";
+		content: "\e518";
+		font-feature-settings: normal;
 		font-variation-settings:
 			"FILL" 0,
 			"wght" 400,
@@ -500,7 +508,7 @@ a:hover {
 	}
 
 	.dark .VPNavBarAppearance .VPSwitch::before {
-		content: "dark_mode";
+		content: "\e51c";
 	}
 
 	.VPNavBarAppearance .VPSwitch:hover::before,
@@ -821,7 +829,8 @@ a:hover {
 	font-weight: normal;
 	line-height: 1;
 	color: var(--docs-theme-muted);
-	content: "circle";
+	content: "\ef4a";
+	font-feature-settings: normal;
 	font-variation-settings:
 		"FILL" 0,
 		"wght" 400,
@@ -859,31 +868,31 @@ a:hover {
 }
 
 .VPNavBarMenuLink:nth-of-type(1)::before {
-	content: "home";
+	content: "\e9b2";
 }
 
 .VPNavBarMenuLink:nth-of-type(2)::before {
-	content: "info";
+	content: "\e88e";
 }
 
 .VPNavBarMenuLink:nth-of-type(3)::before {
-	content: "alternate_email";
+	content: "\e0e6";
 }
 
 .VPNavBarMenuLink:nth-of-type(4)::before {
-	content: "hub";
+	content: "\e9f4";
 }
 
 .VPNavBarMenuLink:nth-of-type(5)::before {
-	content: "monitoring";
+	content: "\f190";
 }
 
 .VPNavBarMenuLink:nth-of-type(6)::before {
-	content: "travel_explore";
+	content: "\e87a";
 }
 
 .VPNavBarMenuLink:nth-of-type(7)::before {
-	content: "open_in_new";
+	content: "\e89e";
 }
 
 /* Mobile navigation icons */
@@ -906,7 +915,7 @@ a:hover {
 	align-items: center;
 	justify-content: center;
 	color: var(--docs-theme-muted);
-	content: "menu";
+	content: "\e5d2";
 	font-family: "Material Symbols Rounded", sans-serif;
 	font-size: 24px;
 	font-weight: normal;
@@ -920,7 +929,7 @@ a:hover {
 }
 
 .VPNavBarHamburger.active::before {
-	content: "close";
+	content: "\e5cd";
 }
 
 .VPNavBarHamburger:hover::before,
@@ -1081,7 +1090,7 @@ a:hover {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	content: "search";
+	content: "\ef7a";
 	font-family: "Material Symbols Rounded", sans-serif;
 	font-size: 20px;
 	font-weight: normal;
@@ -1109,7 +1118,7 @@ a:hover {
 .VPLocalSearchBox .back-button .local-search-icon::before,
 .VPLocalSearchBox .back-button .vpi-arrow-left::before,
 .VPLocalSearchBox .back-button .vpi-arrow-right::before {
-	content: "arrow_back";
+	content: "\e5c4";
 }
 
 .VPLocalSearchBox .search-actions button {
@@ -1347,7 +1356,7 @@ a:hover {
 	align-items: center;
 	justify-content: center;
 	color: var(--vp-c-brand);
-	content: "info";
+	content: "\e88e";
 	font-family: "Material Symbols Rounded", sans-serif;
 	font-size: 22px;
 	font-weight: normal;
@@ -1368,7 +1377,7 @@ a:hover {
 .vp-doc .custom-block.tip::before,
 .VPDoc .custom-block.tip::before {
 	color: #2f8f6b;
-	content: "check_circle";
+	content: "\f0be";
 }
 
 .vp-doc .custom-block.warning,
@@ -1379,7 +1388,7 @@ a:hover {
 .vp-doc .custom-block.warning::before,
 .VPDoc .custom-block.warning::before {
 	color: #b97818;
-	content: "warning";
+	content: "\f083";
 }
 
 .vp-doc .custom-block.danger,
@@ -1390,7 +1399,7 @@ a:hover {
 .vp-doc .custom-block.danger::before,
 .VPDoc .custom-block.danger::before {
 	color: #b94a48;
-	content: "report";
+	content: "\f052";
 }
 
 .vp-doc details.custom-block,
@@ -1423,7 +1432,7 @@ a:hover {
 	width: 22px;
 	height: 22px;
 	color: var(--docs-theme-muted);
-	content: "chevron_right";
+	content: "\e5cc";
 	font-family: "Material Symbols Rounded", sans-serif;
 	font-size: 22px;
 	font-weight: normal;
@@ -1438,7 +1447,7 @@ a:hover {
 
 .vp-doc details.custom-block[open] > summary::before,
 .VPDoc details.custom-block[open] > summary::before {
-	content: "expand_more";
+	content: "\e5cf";
 }
 
 .vp-doc details.custom-block > summary::marker,
