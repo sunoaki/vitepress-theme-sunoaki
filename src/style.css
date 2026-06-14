@@ -454,6 +454,8 @@ a:hover {
 	}
 
 	.dark .VPNavBarAppearance::before {
+		background: var(--docs-theme-nav-pill-bg);
+		border-color: var(--docs-theme-nav-pill-border);
 		box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
 	}
 
@@ -551,6 +553,8 @@ a:hover {
 	}
 
 	.dark .VPNavBar .VPNavBarTranslations::before {
+		background: var(--docs-theme-nav-pill-bg);
+		border-color: var(--docs-theme-nav-pill-border);
 		box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
 	}
 
@@ -707,6 +711,11 @@ a:hover {
 		+ .VPNavBarAppearance::before {
 		display: none;
 	}
+
+	.dark .VPNavBarTranslations:has(+ .VPNavBarAppearance)::before {
+		background: var(--docs-theme-nav-pill-bg);
+		border-color: var(--docs-theme-nav-pill-border);
+	}
 }
 
 /* Top Nav Icon Menu Redesign */
@@ -724,6 +733,8 @@ a:hover {
 	}
 
 	.dark .VPNavBarMenu {
+		background: var(--docs-theme-nav-pill-bg);
+		border-color: var(--docs-theme-nav-pill-border);
 		box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
 	}
 }
@@ -957,11 +968,15 @@ a:hover {
 		padding-left: 0;
 	}
 
-	.DocSearch-Button {
+	.DocSearch-Button,
+	.DocSearch.DocSearch-Button,
+	.dark .DocSearch-Button,
+	.dark .DocSearch.DocSearch-Button {
 		height: 46px;
 		min-width: 220px;
 		padding: 0 14px 0 16px;
 		background: var(--docs-theme-nav-pill-bg);
+		background-color: var(--docs-theme-nav-pill-bg);
 		border-color: var(--docs-theme-nav-pill-border);
 		border-radius: var(--docs-theme-radius-full);
 		transition:
@@ -970,8 +985,12 @@ a:hover {
 			box-shadow 0.2s;
 	}
 
-	.DocSearch-Button:hover {
+	.DocSearch-Button:hover,
+	.DocSearch.DocSearch-Button:hover,
+	.dark .DocSearch-Button:hover,
+	.dark .DocSearch.DocSearch-Button:hover {
 		background: var(--docs-theme-nav-pill-active);
+		background-color: var(--docs-theme-nav-pill-active);
 		border-color: var(--vp-c-brand);
 		box-shadow: 0 2px 8px rgba(23, 32, 38, 0.04);
 	}
@@ -1004,8 +1023,7 @@ a:hover {
 }
 
 /* Homepage Nav Hero State */
-.Layout.home .VPNavBar .VPNavBarTitle .title > span,
-.Layout.home .VPNavBar .VPNavBarTitle .title > img,
+.Layout.home .VPNavBar .VPNavBarTitle,
 .Layout.home .VPNavBar .divider,
 .Layout.home .VPNavBar .divider-line {
 	transition:
@@ -1022,8 +1040,7 @@ a:hover {
 	display: none;
 }
 
-.Layout.home .VPNavBar.top .VPNavBarTitle .title > span,
-.Layout.home .VPNavBar.top .VPNavBarTitle .title > img,
+.Layout.home .VPNavBar.top .VPNavBarTitle,
 .Layout.home .VPNavBar.top .divider,
 .Layout.home .VPNavBar.top .divider-line {
 	opacity: 0;
