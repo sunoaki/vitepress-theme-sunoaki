@@ -490,37 +490,54 @@ a:hover {
 	}
 
 	.VPNavBarAppearance .VPSwitch .check {
-		display: none !important;
-	}
-
-	.VPNavBarAppearance .VPSwitch::before {
+		position: static !important;
+		top: auto !important;
+		left: auto !important;
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		font-family: "Material Symbols Rounded", sans-serif;
-		font-size: 20px;
-		font-weight: normal;
-		line-height: 1;
+		width: 36px;
+		height: 36px;
+		border-radius: var(--docs-theme-radius-full);
+		background: transparent;
+		box-shadow: none;
+		transform: none !important;
+		transition: none;
+	}
+
+	.VPNavBarAppearance .VPSwitch .icon {
+		position: relative;
+		display: block;
+		width: 20px;
+		height: 20px;
+		border-radius: 0;
+		overflow: visible;
+	}
+
+	.VPNavBarAppearance .VPSwitch .icon [class^="vpi-"],
+	.VPNavBarAppearance .VPSwitch .icon [class*=" vpi-"] {
+		position: absolute !important;
+		inset: 0 !important;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: auto !important;
+		height: auto !important;
 		color: var(--docs-theme-muted);
-		content: "\e518";
-		font-feature-settings: normal;
-		font-variation-settings:
-			"FILL" 0,
-			"wght" 400,
-			"GRAD" 0,
-			"opsz" 24;
-		-webkit-font-smoothing: antialiased;
 		transition:
 			color 0.2s,
-			font-variation-settings 0.2s;
+			opacity 0.2s;
 	}
 
-	.dark .VPNavBarAppearance .VPSwitch::before {
-		content: "\e51c";
+	.VPNavBarAppearance .VPSwitch .icon [class^="vpi-"]::before,
+	.VPNavBarAppearance .VPSwitch .icon [class*=" vpi-"]::before {
+		font-size: 20px;
 	}
 
-	.VPNavBarAppearance .VPSwitch:hover::before,
-	.VPNavBarAppearance .VPSwitch:focus-visible::before {
+	.VPNavBarAppearance .VPSwitch:hover .icon [class^="vpi-"],
+	.VPNavBarAppearance .VPSwitch:hover .icon [class*=" vpi-"],
+	.VPNavBarAppearance .VPSwitch:focus-visible .icon [class^="vpi-"],
+	.VPNavBarAppearance .VPSwitch:focus-visible .icon [class*=" vpi-"] {
 		color: var(--docs-theme-text);
 	}
 
@@ -536,9 +553,10 @@ a:hover {
 		position: relative;
 	}
 
-	.VPNavBar .VPNavBarTranslations::before {
+	.VPNavBar .VPNavBarTranslations.translations::before {
 		content: "";
 		position: absolute;
+		margin: 0;
 		top: -5px;
 		left: -5px;
 		width: calc(100% + 10px);
@@ -589,20 +607,19 @@ a:hover {
 		box-shadow: none;
 	}
 
-	.VPNavBarTranslations .menu {
-		top: calc(var(--vp-nav-height) / 2 + 24px);
-		right: auto;
-		left: 31px;
-		transform: translateX(-75%);
-	}
-
+	/* Right-align the dropdown so it opens under the control and never clips. */
+	.VPNavBarTranslations .menu,
 	.VPNavBarTranslations .button[aria-expanded="false"] + .menu {
-		transform: translateX(-75%);
+		top: calc(var(--vp-nav-height) / 2 + 24px);
+		right: 0;
+		left: auto;
+		transform: translateY(-6px) scale(0.97);
+		transform-origin: top right;
 	}
 
 	.VPNavBarTranslations:hover .menu,
 	.VPNavBarTranslations .button[aria-expanded="true"] + .menu {
-		transform: translateX(-75%);
+		transform: translateY(0) scale(1);
 	}
 
 	.VPNavBarTranslations .VPMenu {
@@ -693,12 +710,17 @@ a:hover {
 		transition: color 0.2s;
 	}
 
-	/* Grouping logic when both are present */
+	/* Grouped layout when both controls are present: one shared pill background
+	   spanning two fixed 36px icon slots (4px gap, 5px halo) with no width change. */
+	.VPNavBar .VPNavBarTranslations:has(+ .VPNavBarAppearance) {
+		margin-left: 16px;
+	}
+
 	.VPNavBar .VPNavBarTranslations:has(+ .VPNavBarAppearance)::before {
 		display: block;
 		position: absolute;
 		top: -5px;
-		left: -12px;
+		left: -5px;
 		width: calc(100% + 4px + 36px + 10px);
 		height: calc(100% + 10px);
 	}
@@ -1027,8 +1049,10 @@ a:hover {
 .Layout.home .VPNavBar .divider,
 .Layout.home .VPNavBar .divider-line {
 	transition:
-		opacity 0.3s ease,
-		visibility 0.3s ease;
+		opacity 420ms cubic-bezier(0.16, 1, 0.3, 1),
+		visibility 420ms cubic-bezier(0.16, 1, 0.3, 1),
+		transform 520ms cubic-bezier(0.16, 1, 0.3, 1);
+	transform-origin: left center;
 }
 
 .Layout.home .VPNavBar .VPNavBarTitle .title > span {
@@ -1046,6 +1070,30 @@ a:hover {
 	opacity: 0;
 	visibility: hidden;
 	pointer-events: none;
+	transform: translateY(-8px) scale(0.94);
+}
+
+.Layout.home:has(.docs-theme-home) .VPNavBar .VPNavBarTitle {
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(-8px) scale(0.94);
+}
+
+.Layout.home .VPNavBar.docs-theme-nav-scrolled .VPNavBarTitle {
+	opacity: 1;
+	visibility: visible;
+	pointer-events: auto;
+	transform: translateY(0) scale(1);
+}
+
+.Layout.home .VPNavBar:not(.top) .VPNavBarTitle,
+.Layout.home .VPNavBar:not(.top) .VPNavBarTitle {
+	transform: translateY(0) scale(1);
+}
+
+.Layout.home .VPNavBar .VPNavBarTitle {
+	position: relative;
+	z-index: 2;
 }
 
 .Layout.home .VPNavBar {
